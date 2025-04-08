@@ -6,6 +6,10 @@ Welcome to my personal development documentation library. This repository is a s
 
 The documents are stored in the `docs/` folder and cover a range of topics including .NET, Entity Framework, Azure, and DevOps practices.
 
+### 📝 Workshops
+
+- [Entity Framework Core Workshop](WorkShop/efCoreWorkshopGuide.md)
+
 ### ✅ Cheat Sheets & Notes
 - [Git cli Cheat Sheet](docs/git-cheatsheet.md)
 - [Entity Framework Core Commands Cheat Sheet](docs/efcore-cheatsheet.md)
