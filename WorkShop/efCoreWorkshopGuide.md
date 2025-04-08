@@ -18,7 +18,7 @@ Entity Framework Core (EF Core) is Microsoft’s modern, lightweight ORM for .NE
 
 With EF Core, your data logic is centralized, strongly typed, and easier to maintain.
 
-This workshop will teach you how to:
+### Topics in this workshop
 
 - Model entities with relationships
 - Connect to SQL Server
