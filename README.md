@@ -29,6 +29,10 @@ The documents are stored in the `docs/` folder and cover a range of topics inclu
 - [Microsoft Cloud Adoption Framework for Azure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/)
 - [Azure landing zone explained](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
 
+### SQL and Database
+
+- [SQL Normalization: A Simple Guide](docs/sql-normalization-guide.md)
+
 ### 📖 Recommended Readin
 
 - [Recommended Reading for Software Developers and Architects](docs/recommended-reading.md)
