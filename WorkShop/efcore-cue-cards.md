@@ -14,7 +14,7 @@ Use these cue cards to guide your live Entity Framework Core demo in Visual Stud
 
 ## 🧱 Cue Card 2: The Data Model (ER to Classes)
 
-- Show the ER diagram: Customer → Order → OrderLine
+- Sample ER diagram: Customer → Order → OrderLine
   ![ER Diagram](../assets/images/erdiagram.png)
 
 - Walk through the three entity classes
