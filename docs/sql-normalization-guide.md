@@ -25,33 +25,70 @@ Here, `PhoneNumbers` stores multiple values in a single field.
 
 ---
 
+Absolutely! Here's a clearer and slightly more real-world rewrite of **Second Normal Form (2NF)** with a better example and deeper explanation:
+
+---
+
 ## 🥈 Second Normal Form (2NF)
 
-**Rule**: Must be in 1NF and all non-key attributes must depend on the whole primary key.
+### ✅ Rule:
+A table is in **2NF** if:
+1. It is already in **1NF** (no repeating groups, atomic values),
+2. **Every non-key column is fully dependent on the entire primary key** — not just part of it.
 
-### ❌ Bad Example (Not 2NF)
+This rule mostly applies when you have **composite primary keys** (i.e., two or more columns making up the key).
 
-| OrderId | ProductId | ProductName | Price |
-|---------|-----------|-------------|-------|
-| 101     | 2001      | Apples      | 3.00  |
+---
 
-Here, `ProductName` and `Price` depend **only on ProductId**, not the full key `(OrderId, ProductId)`.
+### 🧾 Real-World Scenario: Orders and Products
 
-### ✅ Good Example (2NF)
+Imagine we have a table that records which products are in which orders, along with product information:
 
-Split into two tables:
+### ❌ Bad Example (Not 2NF — Partial Dependency)
 
-**OrderProduct**
+| **OrderId** | **ProductId** | **ProductName** | **UnitPrice** | **Quantity** |
+|-------------|---------------|------------------|----------------|--------------|
+| 1001        | 2001          | Coffee           | 5.99           | 2            |
+| 1001        | 2002          | Tea              | 3.49           | 1            |
 
-| OrderId | ProductId |
-|---------|-----------|
-| 101     | 2001      |
+Here, the **composite key** is `(OrderId, ProductId)` — together they identify the row.
 
-**Product**
+But:
+- `ProductName` and `UnitPrice` only depend on `ProductId`, not the full key.
+- This causes **redundancy** (if "Coffee" appears in multiple orders, its name and price are repeated).
 
-| ProductId | ProductName | Price |
-|-----------|-------------|-------|
-| 2001      | Apples      | 3.00  |
+---
+
+### ✅ Good Example (Normalized to 2NF)
+
+Split the table into two:
+
+#### 🔹 `OrderProduct` (many-to-many relationship)
+
+| **OrderId** | **ProductId** | **Quantity** |
+|-------------|---------------|--------------|
+| 1001        | 2001          | 2            |
+| 1001        | 2002          | 1            |
+
+#### 🔹 `Product` (product data belongs here)
+
+| **ProductId** | **ProductName** | **UnitPrice** |
+|---------------|------------------|----------------|
+| 2001          | Coffee           | 5.99           |
+| 2002          | Tea              | 3.49           |
+
+Now:
+
+- Each non-key column in `OrderProduct` depends **only on the full key** (`OrderId + ProductId`).
+- Product-related info lives in a separate table.
+
+---
+
+### 🤓 Why It Matters
+
+- Prevents duplication of product data across many orders
+- Easier to update (change price once)
+- Reduces potential inconsistencies
 
 ---
 
